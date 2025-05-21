@@ -1,0 +1,179 @@
+
+
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff, #c3dafe);
+  overflow: hidden;
+  .window-content {
+    flex: 1;
+    padding: 8px 8px 16px 8px; /* Added 16px bottom padding */
+    background: #f9fafb;
+    overflow: hidden;
+  }
+
+  .window-content-default {
+    padding: 8px;
+    color: #6b7280;
+  }
+
+  .resize-handle {
+    position: absolute;
+    background: transparent;
+  }
+
+  .resize-handle.ne { width: 15px; height: 15px; top: 0; right: 0; cursor: ne-resize; }
+  .resize-handle.nw { width: 15px; height: 15px; top: 0; left: 0; cursor: nw-resize; }
+  .resize-handle.se { width: 15px; height: 15px; bottom: 0; right: 0; cursor: se-resize; }
+  .resize-handle.sw { width: 15px; height: 15px; bottom: 0; left: 0; cursor: sw-resize; }
+  .resize-handle.n { width: 95%; height: 8px; top: 0; cursor: n-resize; }
+  .resize-handle.s { width: 95%; height: 8px; bottom: 0; cursor: s-resize; }
+  .resize-handle.e { height: 95%; width: 8px; right: 0; cursor: e-resize; }
+  .resize-handle.w { height: 95%; width: 8px; left: 0; cursor: w-resize; }
+
+  .floating-bar {
+    position: absolute;
+    background: #1f2937;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    z-index: 60;
+    min-width: 140px;
+
+    .floating-bar-item {
+      display: flex;
+      align-items: center;
+      padding: 6px 10px;
+      color: #fff;
+      background: #374151;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+
+      &:hover {
+        background: #4b5563;
+        transform: translateX(4px);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .floating-bar-icon {
+        margin-right: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .notepad-content {
+    width: 100%;
+    height: 95%;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+    color: #1f2937;
+    box-sizing: border-box;
+
+    &:empty:before {
+      content: attr(placeholder);
+      color: #6b7280;
+    }
+  }
+
+  .browser-content {
+    display: flex;
+    flex-direction: column;
+    height: 95%;
+  }
+
+  .browser-bar {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+
+  .browser-input {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #1f2937;
+    outline: none;
+
+    &:focus {
+      border-color: #4CAF50;
+      box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    }
+  }
+
+  .browser-go-btn {
+    background: linear-gradient(45deg, #4CAF50, #22c55e);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .browser-iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .video-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 95%;
+    background: #1f2937;
+  }
+
+  .video-player {
+    width: 100%;
+    max-height: 100%;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .floating-bar {
+      min-width: 120px;
+    }
+
+    .floating-bar-item {
+      padding: 4px 8px;
+      font-size: 12px;
+
+      .floating-bar-icon {
+        font-size: 14px;
+      }
+    }
+
+    .browser-input,
+    .browser-go-btn {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+
+    .notepad-content {
+      font-size: 12px;
+    }
+  }
+}
