@@ -1,6 +1,5 @@
 
 import React, { createContext, useContext, useState, useRef, useEffect } from 'react';
-import Seo from "@section/Seo"
 import { AppWindow, FloatingBar, WindowTitle, WindowControls } from './component';
 import CONFIG from './config';
 import './grid.scss';
@@ -170,7 +169,6 @@ const Desktop = () => {
       toggleWindow,
       bringWindowToFront
     }}>
-      <Seo page="demo-grid"/>
       <div className="desktop" ref={desktopRef}>
         <div className="toolbar" ref={toolbarRef}>
           <button className="add-icon" onClick={() => setIsFloatingBarOpen(prev => !prev)} title="Add Window" />
